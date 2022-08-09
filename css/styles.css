@@ -334,20 +334,16 @@ body {
   border-radius: 50%;
   padding: 0;
   margin: 0;
+  background-size: 11px 11px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../images/Close.svg');
 
   cursor: pointer;
 }
 
 .md-close-button:active{
   background-color: #AFB1B8;
-}
-
-.md-close-button::before{
-  content: '';
-    width: 11px;
-    height: 11px;
-    background-size: contain;
-    background-image: url('../images/Close.svg');
 }
 
 /* Блок "О нас" */
@@ -608,6 +604,7 @@ body {
 .filter-button:focus {
   background: var(--blueColor);
   color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .filter-button.all {
@@ -659,6 +656,8 @@ body {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+
+
 .flexelem:nth-child(3n) {
   margin-right: 0;
 }
@@ -669,9 +668,14 @@ body {
 
 .projects-thumb{
   position: relative;
+  overflow: hidden;
 }
 
-.projects-thumb:hover .overlay-projects{
+.flexelem:hover .overlay-projects{
+  transform: translateY(0);
+}
+
+.projects-link:focus .overlay-projects{
   opacity: 1;
 }
 
@@ -687,7 +691,9 @@ body {
   background-color: rgba(33, 150, 243, 0.9);
 
   overflow: hidden;
-  opacity: 0;
+  opacity: 1;
+  transform: translateY(375px);
+  transition: transform 200ms linear;
 }
 
 .overlay-pr-text{
