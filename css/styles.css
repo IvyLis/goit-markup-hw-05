@@ -17,6 +17,7 @@ html {
   --blackColor: #212121;
   --lightBlackColor: #757575;
   --blueColor: #2196f3;
+  --timing-cub: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -77,12 +78,15 @@ body {
   line-height: 16px;
   letter-spacing: 0.02em;
   /* margin-right: 50px; */
+
+  transition: color 250ms var(--timing-cub);
 }
 
-.site-nav-li .link.current::before{
+.site-nav-li .link.current::after{
   content: '';
   position: absolute;
   bottom: 0;
+  left: 0;
   display: inline-block;
   width: 100%;
   height: 4px;
@@ -103,6 +107,7 @@ body {
 .site-nav-li .link:hover,
 .site-nav-li .link:focus {
   color: var(--blueColor);
+  
 }
 
 .contacts-nav {
@@ -127,12 +132,14 @@ body {
   letter-spacing: 0.02em;
   text-decoration: none;
   fill: var(--lightBlackColor);
+  transition: color 250ms var(--timing-cub), fill 250ms var(--timing-cub);
 }
 
 .contacts-nav-link:hover,
 .contacts-nav-link:focus {
   color: var(--blueColor);
   fill: var(--blueColor);
+  
 }
 
 .contacts-nav-link .svg-item{
@@ -230,10 +237,13 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
     background-position: center;
     fill: #ffffff;
+
+    transition: background-color 250ms var(--timing-cub);
 }
 
 .join-us-link:hover{
   background-color: var(--blueColor);
+  
 }
 
 .join-us-link svg{
@@ -306,6 +316,7 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
 
   opacity: 1;
+  transition: opacity 250ms var(--timing-cub);
 }
 
 .backdrop.is-hidden {
@@ -313,14 +324,20 @@ body {
   pointer-events: none;
 }
 
+.backdrop.is-hidden .modal-order-w{
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
 .modal-order-w{
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   width: 528px;
   height: 581px;
   background-color: #fff;
+
+  transition: transform 250ms var(--timing-cub);
 }
 
 .md-close-button{
@@ -523,6 +540,8 @@ body {
   height: 44px;
   border-radius: 50%;
   fill: #AFB1B8;
+
+  transition: background-color 250ms var(--timing-cub), fill 250ms var(--timing-cub);
 }
 
 .team-links:hover{
@@ -554,6 +573,8 @@ body {
   border: 1px solid #AFB1B8;
   border-radius: 4px;
   fill: #AFB1B8;
+
+  transition: border 250ms var(--timing-cub), fill 250ms var(--timing-cub);
 }
 
 .cl-box:hover{
@@ -598,6 +619,8 @@ body {
   border: 0px;
   border-radius: 4px;
   cursor: pointer;
+
+  transition: background 250ms var(--timing-cub), color 250ms var(--timing-cub), box-shadow 250ms var(--timing-cub);
 }
 
 .filter-button:hover,
@@ -649,6 +672,8 @@ body {
   margin-bottom: 30px;
   background: #ffffff;
   border: 1px solid #eeeeee;
+
+  transition: box-shadow 250ms var(--timing-cub);
 }
 
 .flexelem:hover {
@@ -693,7 +718,7 @@ body {
   overflow: hidden;
   opacity: 1;
   transform: translateY(375px);
-  transition: transform 200ms linear;
+  transition: transform 250ms var(--timing-cub);
 }
 
 .overlay-pr-text{
